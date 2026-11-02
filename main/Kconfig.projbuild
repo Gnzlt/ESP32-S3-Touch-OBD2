@@ -1,0 +1,67 @@
+menu "OBD2 dashboard"
+
+    config DASH_BIKE_PROFILE
+        string "Bike profile (a header in main/bike/profiles/, without .h)"
+        default "generic"
+        help
+            The motorcycle's numbers: rev range, gear ratios, coolant and voltage
+            limits, displacement, tank size and tyre pressures. "generic" suits any
+            bike; "honda_cb500x" is a complete example. To add yours, copy
+            main/bike/profiles/generic.h to main/bike/profiles/<name>.h, edit it and
+            enter <name> here. See docs/configure-your-bike.md.
+
+    config DASH_DEMO_DEFAULT
+        bool "Start in demo mode (synthetic data, no Bluetooth)"
+        default y
+        help
+            Demo mode plays a synthetic ride, geared to the bike profile, plus staged
+            alerts, so every page can be checked on the desk. It can be switched on
+            the Status page at any time (saved in NVS); this only sets the value on
+            a fresh board.
+
+    config DASH_ADAPTER_NAME
+        string "Preferred adapter name (substring, empty = any known ELM327 name)"
+        default ""
+        help
+            Advertised-name filter, e.g. "IOS-Vlink". Empty accepts any adapter that
+            advertises a known ELM327 service or name.
+
+    config DASH_PERF_MONITOR
+        bool "Show LVGL's FPS / CPU overlay"
+        default n
+
+    config DASH_LOG_DEMO
+        bool "Write ride logs to the microSD card in demo mode too"
+        default n
+        help
+            Off: only real rides are logged. On is for checking the logger on the desk.
+
+    config DASH_FORMAT_SD_ON_BOOT
+        bool "Format the microSD card once at boot (ERASES IT)"
+        default n
+        help
+            Formats the card (FAT32, 32 KB clusters) on the first boot of this firmware build
+            and never again for the same build. Leave off: the Status page has a Format
+            button behind a confirm.
+
+    config DASH_AUTOTOUR
+        bool "Swipe through the pages by itself (desk demo, FPS checks)"
+        default n
+
+    config DASH_SCREENSHOTS
+        bool "Dump a screenshot of every page over the serial port at boot (development)"
+        default n
+        select LV_USE_SNAPSHOT
+        help
+            Shows each page in turn and prints it as base64 RGB565 between SHOT/ENDSHOT lines.
+            tools/grab_screens.py turns them into PNGs.
+
+    config DASH_SCREENSHOT_DELAY_S
+        int "Seconds after boot before the first screenshot"
+        depends on DASH_SCREENSHOTS
+        default 0
+        help
+            The demo ride is under way from about 30 s to 230 s (the demo overheats at
+            236 s), so 160 gives screenshots of a bike on the road.
+
+endmenu

@@ -1,0 +1,9 @@
+# SYNTHETIC: adapter powered from the 6-pin plug, ignition off. The adapter
+# answers AT commands and ATRV, but no ECU answers.
+>ATI
+ELM327 v2.3
+>0100
+SEARCHING...
+UNABLE TO CONNECT
+>ATRV
+12.6V

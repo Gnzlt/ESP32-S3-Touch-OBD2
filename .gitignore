@@ -1,0 +1,21 @@
+# ESP-IDF
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+
+# Host tests
+build-host/
+
+# Your ride logs and the site built from them (tools/pull_logs.py, tools/build_site.py)
+/logs/
+/site/
+
+# Editors, OS, Python
+.cache/
+.vscode/
+.idea/
+.DS_Store
+__pycache__/
+*.pyc
+.venv/

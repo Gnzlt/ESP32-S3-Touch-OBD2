@@ -1,0 +1,10 @@
+## IDF Component Manager manifest. Dependencies are downloaded into managed_components/ on first build.
+## The board support package itself is vendored in ../components/esp32_s3_touch_lcd_1_85b.
+dependencies:
+  idf: ">=5.5"
+  # Same LVGL version as Waveshare's official IDF examples for this board
+  lvgl/lvgl:
+    version: "9.5.0"
+    public: true
+  espressif/bq27220: "^0.1.1"
+  waveshare/qmi8658: "^1.0.1"

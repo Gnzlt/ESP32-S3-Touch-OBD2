@@ -1,0 +1,20 @@
+# SYNTHETIC: the CB500X (no PID 01) with one stored code, P0133, read at
+# connect through Mode 03, and one pending code, P0171, through Mode 07.
+>0100
+41007C3EC011
+>ATDPN
+A7
+>0100
+41007C3EC011
+>0120
+412080000001
+>0140
+414080000000
+>03
+43010133
+>07
+47010171
+>010C0D
+410C12C00D00
+>ATRV
+14.2V

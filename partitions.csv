@@ -1,0 +1,6 @@
+# Name,   Type, SubType, Offset,  Size, Flags
+# 16 MB flash: 6.5 MB app + ~9 MB SPIFFS "storage" (label used by bsp_spiffs_mount())
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 0x680000,
+storage,  data, spiffs,  ,        0x970000,

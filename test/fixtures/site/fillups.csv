@@ -1,0 +1,4 @@
+fill,ride,uptime_s,km_since_last,raw_l_since_last,litres_pumped,k,model,coverage_pct,time
+1,1,100,0.00,0.010,12.0,1.000,2,100,
+2,2,5000,250.0,10.000,11.0,1.000,2,97,2026-10-17T09:12:03Z
+3,demo,58,0.00,0.007,10.0,1.000,1,100,
